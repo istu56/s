@@ -1,8 +1,3 @@
-# Copyright (c) 2025 AnonymousX1025
-# Licensed under the MIT License.
-# This file is part of AnonXMusic
-
-
 from pathlib import Path
 
 from pyrogram import filters, types
@@ -20,8 +15,12 @@ def playlist_to_queue(chat_id: int, tracks: list) -> str:
     text = text[:1948] + "</blockquote>"
     return text
 
+
 @app.on_message(
-    filters.command(["play", "playforce", "vplay", "vplayforce"])
+    (
+        filters.command(["play", "playforce", "vplay", "vplayforce"])
+        | filters.regex(r"^(play|vplay)\s")
+    )
     & filters.group
     & ~app.bl_users
 )
@@ -72,10 +71,15 @@ async def play_hndlr(
     elif len(m.command) >= 2:
         query = " ".join(m.command[1:])
         file = await yt.search(query, sent.id, video=video)
-        if not file:
-            return await sent.edit_text(
-                m.lang["play_not_found"].format(config.SUPPORT_CHAT)
-            )
+
+    elif m.text.lower().startswith("play "):
+        query = m.text[5:]
+        file = await yt.search(query, sent.id, video=video)
+
+    elif m.text.lower().startswith("vplay "):
+        query = m.text[6:]
+        file = await yt.search(query, sent.id, video=True)
+        video = True
 
     if not file:
         return await sent.edit_text(m.lang["play_usage"])
@@ -124,8 +128,10 @@ async def play_hndlr(
             file.file_path = await yt.download(file.id, video=video)
 
     await anon.play_media(chat_id=m.chat.id, message=sent, media=file)
+
     if not tracks:
         return
+
     added = playlist_to_queue(m.chat.id, tracks)
     await app.send_message(
         chat_id=m.chat.id,
