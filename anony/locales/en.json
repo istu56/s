@@ -1,5 +1,5 @@
 {
-"add_me": "Add me to your group",
+"add_me": "ᴧᴅᴅ ᴍᴇ вᴧʙʏ",
 "admin_required": "Bot requires the <b>invite users via link</b> permission to work.",
 "admin_cache_wait": "You can only refresh the admin cache once every 10 minutes.",
 "admin_cache_reloading": "Reloading admin cache...",
@@ -146,15 +146,15 @@
 "replayed": "Stream replayed",
 "skipped": "Stream skipped",
 "stopped": "Stream ended",
-"source": "Source",
-"support": "Support",
-"help_0": "Admins",
-"help_1": "Auth",
-"help_2": "Blacklist",
-"help_3": "Language",
-"help_4": "Ping",
-"help_5": "Play",
-"help_6": "Queue",
-"help_7": "Stats",
-"help_8": "Sudoers"
+"source": "ᴏᴡɴᴇʀ",
+"support": "sυᴘᴘᴏʀᴛ",
+"help_0": "ᴀᴅᴍɪɴs",
+"help_1": "ᴀᴜᴛʜ",
+"help_2": "ʙʟᴀᴄᴋ",
+"help_3": "ʟᴀɴɢᴜᴀɢᴇ",
+"help_4": "ᴘɪɴɢ",
+"help_5": "ᴘʟᴀʏ",
+"help_6": "ǫᴜᴇᴜᴇ",
+"help_7": "sᴛᴀᴛs",
+"help_8": "sᴜᴅᴏ"
 }
