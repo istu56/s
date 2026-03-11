@@ -70,7 +70,7 @@ bash start
     </summary>
 
 > Click on the button below to deploy on Heroku<br>
-    <a href="https://dashboard.heroku.com/new?template=https://github.com/AnonymousX1025/AnonXMusic">
+    <a href="https://dashboard.heroku.com/new?template=https://github.com/istu56/s">
         <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-black?style=for-the-badge&logo=heroku"/>
     </a>
 </details>
@@ -156,3 +156,4 @@ This project is licensed under the <b>MIT License</b> — see <a href="https://g
 ⭐ Enjoying the tunes? <b>Star the repo</b> — feedback keeps the rhythm going!
 
 </div>
+
