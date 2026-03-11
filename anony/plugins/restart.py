@@ -1,8 +1,3 @@
-# Copyright (c) 2025 AnonymousX1025
-# Licensed under the MIT License.
-# This file is part of AnonXMusic
-
-
 import os
 import sys
 import shutil
@@ -55,7 +50,28 @@ async def _restart(_, m: types.Message):
     asyncio.create_task(stop())
     await asyncio.sleep(2)
 
-    try: os.remove("log.txt")
-    except Exception: pass
+    try:
+        os.remove("log.txt")
+    except Exception:
+        pass
+
+    os.execl(sys.executable, sys.executable, "-m", "anony")
+
+
+# NEW UPDATE COMMAND
+
+@app.on_message(filters.command(["update"]) & app.sudoers)
+@lang.language()
+async def _update(_, m: types.Message):
+    sent = await m.reply_text("🔄 Updating bot from GitHub...")
+
+    try:
+        os.system("git pull")
+        await sent.edit_text("✅ Bot Updated!\n♻️ Restarting...")
+    except Exception:
+        await sent.edit_text("❌ Update failed!")
+
+    asyncio.create_task(stop())
+    await asyncio.sleep(2)
 
     os.execl(sys.executable, sys.executable, "-m", "anony")
